@@ -19,7 +19,7 @@ const Card = ( { match, history } ) =>
 		Card.cardID = match.params.cardId
 
 		const cardImage = new Image()
-		cardImage.src = `https://images.thesupremekingscastle.com/${Card.cardID}.jpg`
+		cardImage.src = `https://images.thesupremekingscastle.com/cards/lg/${Card.cardID}.jpg`
 		Card.cardImg = cardImage
 	}
 

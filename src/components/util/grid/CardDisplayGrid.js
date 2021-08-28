@@ -82,7 +82,7 @@ const CardDisplayGrid = memo( ({ cardJsonResults, numResultsDisplayed, numItemsT
 
 
 				<CardImageRounded
-					cardImg={`https://images.thesupremekingscastle.com/${card.cardID}.jpg`}
+					cardImg={`https://images.thesupremekingscastle.com/cards/x-sm/${card.cardID}.jpg`}
 					timeout={index % 20 * 10}
 					/>
 

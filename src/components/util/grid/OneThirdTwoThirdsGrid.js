@@ -11,6 +11,7 @@ const LeftBoxHeaderTypography = Styled(Typography)`
 	{
 		color: rgba(255, 255, 255, .95);
 		margin-bottom: 1rem;
+		max-width: 100%;
 	}
 `
 
@@ -43,6 +44,8 @@ const RightBoxPaper = Styled(Paper)`
 		padding-top: 1.2rem;
 		padding-bottom: 1.2rem;
 
+		max-width: 100%;
+
 		@media screen and (min-width: 800px)
 		{
 			padding-left: 1rem;
@@ -71,7 +74,6 @@ const LeftBoxPaper = Styled(RightBoxPaper)`
 			padding-left: 1rem;
 			padding-right: 1rem;
 			padding-top: 1.25rem;
-			padding-bottom: 1.25rem;
 		}
 	}
 `
@@ -100,44 +102,70 @@ const RightBoxSubHeaderTypography = Styled(Typography)`
 `
 
 
-const LeftBox = Styled(Box)`
+const OneThirdComponent = Styled(Box)`
 	&&
 	{
 		margin-bottom: 2.5rem;
 
 		@media screen and (min-width: 800px)
 		{
-			padding-right: .8rem;
 			min-width: 25rem;
 			max-width: 25rem;
+		}
+
+		@media screen and (min-width: 1500px)
+		{
+			min-width: 30rem;
+			max-width: 30rem;
 		}
 	}
 `
 
 
-const RightBox = Styled(Box)`
+const MirroredOneThirdComponent = Styled(OneThirdComponent)`
+	&&
+	{
+		@media screen and (min-width: 800px)
+		{
+			padding-left: 0rem;
+		}
+	}
+`
+
+
+const TwoThirdComponent = Styled(Box)`
 	&&
 	{
 		@media screen and (min-width: 800px)
 		{
 			flex-grow: 1;
+			padding-left: .8rem;
+			width: 1;
 		}
 	}
 `
 
 
-function OneThirdTwoThirdsGrid( { oneThirdComponent, twoThirdComponent } )
+const MirroredTwoThirdComponent = Styled(Box)`
+	&&
+	{
+		@media screen and (min-width: 800px)
+		{
+			flex-grow: 1;
+			padding-right: .8rem;
+			width: 1;
+		}
+	}
+`
+
+
+function OneThirdTwoThirdsGrid( { oneThirdComponent, twoThirdComponent, mirrored=false } )
 {
 
 	return(
 		<Parent>
-			<LeftBox>
-				{oneThirdComponent}
-			</LeftBox>
-
-			<RightBox >
-				{twoThirdComponent}
-			</RightBox>
+			{(mirrored)? <MirroredTwoThirdComponent>{twoThirdComponent}</MirroredTwoThirdComponent> : <MirroredOneThirdComponent>{oneThirdComponent}</MirroredOneThirdComponent>}
+			{(mirrored)? <OneThirdComponent>{oneThirdComponent}</OneThirdComponent> : <TwoThirdComponent>{twoThirdComponent}</TwoThirdComponent>}
 		</Parent>
 	)
 }

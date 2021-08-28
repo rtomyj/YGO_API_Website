@@ -24,7 +24,7 @@ const BanListStats = lazy( () => import('./BanListStats') )
 export default function BanList(props)
 {
 	const [banListStartDates, setBanListStartDates] = useState([])
-	const [selectedBanList, setSelectedBanList] = useState('')
+	const [selectedBanList, setSelectedBanList] = useState(undefined)
 	const [banListInstanceLinks, setBanListInstanceLinks] = useState([])
 
 	const [forbidden, setForbidden] = useState([])
@@ -52,9 +52,9 @@ export default function BanList(props)
 
 
 	useEffect(() => {
-		handleFetch(NAME_maps_ENDPOINT['banListsUrl'], props.history, (resultJson) => {
-			setBanListInstanceLinks(resultJson.banListDates.map(item => item._links['Ban List Content'].href))
-			setBanListStartDates(resultJson.banListDates.map(item => item.effectiveDate))
+		handleFetch(NAME_maps_ENDPOINT['banListsUrl'], props.history, (json) => {
+			setBanListInstanceLinks(json.banListDates.map(item => item._links['Ban List Content'].href))
+			setBanListStartDates(json.banListDates.map(item => item.effectiveDate))
 			setIsSettingUpDates(false)
 		})
 		// eslint-disable-next-line
@@ -74,32 +74,31 @@ export default function BanList(props)
 
 
 	useEffect(() => {
-		if (selectedBanList !== '')
+		if (selectedBanList != null && selectedBanList.length !== 0)
 		{
 			setIsFetchingBanList(true)
 
-			handleFetch(banListInstanceLinks[banListStartDates.indexOf(selectedBanList)], props.history, (resultJson) => {
-				setForbidden( resultJson.banListInstance.forbidden )
-				setLimited( resultJson.banListInstance.limited )
-				setSemiLimited( resultJson.banListInstance.semiLimited )
+			handleFetch(banListInstanceLinks[banListStartDates.indexOf(selectedBanList)], props.history, (json) => {
+				setForbidden( json.banListInstance.forbidden )
+				setLimited( json.banListInstance.limited )
+				setSemiLimited( json.banListInstance.semiLimited )
 
-				setNumForbidden( (resultJson.banListInstance.numForbidden === undefined)? 0 : resultJson.banListInstance.numForbidden )
-				setNumLimited( (resultJson.banListInstance.numLimited === undefined)? 0 : resultJson.banListInstance.numLimited )
-				setNumSemiLimited( (resultJson.banListInstance.numSemiLimited === undefined)? 0 : resultJson.banListInstance.numSemiLimited )
+				setNumForbidden( (json.banListInstance.numForbidden === undefined)? 0 : json.banListInstance.numForbidden )
+				setNumLimited( (json.banListInstance.numLimited === undefined)? 0 : json.banListInstance.numLimited )
+				setNumSemiLimited( (json.banListInstance.numSemiLimited === undefined)? 0 : json.banListInstance.numSemiLimited )
 
 				// Removed cards compared to previous ban list
-				setRemovedCards(resultJson.banListInstance.removedContent.removedCards)
-				setNumRemoved(resultJson.banListInstance.removedContent.numRemoved)
+				setRemovedCards(json.banListInstance.removedContent.removedCards)
+				setNumRemoved(json.banListInstance.removedContent.numRemoved)
 
 				// Newly added cads compared to previous ban list
-				console.log(resultJson.banListInstance.newContent.newForbidden)
-				setNewForbiddenCards(resultJson.banListInstance.newContent.newForbidden)
-				setNewLimitedCards(resultJson.banListInstance.newContent.newLimited)
-				setNewSemiLimitedCards(resultJson.banListInstance.newContent.newSemiLimited)
+				setNewForbiddenCards(json.banListInstance.newContent.newForbidden)
+				setNewLimitedCards(json.banListInstance.newContent.newLimited)
+				setNewSemiLimitedCards(json.banListInstance.newContent.newSemiLimited)
 
-				setNumNewForbidden(resultJson.banListInstance.newContent.numNewForbidden)
-				setNumNewLimited(resultJson.banListInstance.newContent.numNewLimited)
-				setNumNewSemiLimited(resultJson.banListInstance.newContent.numNewSemiLimited)
+				setNumNewForbidden(json.banListInstance.newContent.numNewForbidden)
+				setNumNewLimited(json.banListInstance.newContent.numNewLimited)
+				setNumNewSemiLimited(json.banListInstance.newContent.numNewSemiLimited)
 
 				setIsFetchingBanList(false)
 			})

@@ -1,19 +1,18 @@
 .breadcrumb-parent {
 	padding-top: .75rem;
 	padding-bottom: .75rem;
-	padding-left: 2rem;
-	padding-right: 2rem;
+	padding-left: 1rem;
+	padding-right: 1rem;
 	margin: auto;
 	margin-top: 1rem;
 	margin-bottom: 1rem;
-	margin-right: 3rem;
-	margin-left: 3rem;
 	border-radius: 2rem;
 
 	background-color: white;
 }
 
 .MuiBreadcrumbs-separator {
+	padding-bottom: .3rem;
 }
 
 

@@ -57,7 +57,7 @@ const TabbedView = memo( ( { numForbidden, numLimited, numSemiLimited, forbidden
 						badgeContent={ numForbidden }
 						variant='standard'
 						color='secondary'
-						overlap='rectangle' >
+						overlap='rectangular' >
 						Forbidden
 					</SummaryBadge>
 				}
@@ -74,7 +74,7 @@ const TabbedView = memo( ( { numForbidden, numLimited, numSemiLimited, forbidden
 						badgeContent={ numLimited }
 						variant='standard'
 						color='secondary'
-						overlap='rectangle' >
+						overlap='rectangular' >
 						Limited
 					</SummaryBadge>
 				}
@@ -91,7 +91,7 @@ const TabbedView = memo( ( { numForbidden, numLimited, numSemiLimited, forbidden
 						badgeContent={ numSemiLimited }
 						variant='standard'
 						color='secondary'
-						overlap='rectangle' >
+						overlap='rectangular' >
 						Semi-Limited
 					</SummaryBadge>
 				}

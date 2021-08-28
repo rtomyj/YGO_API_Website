@@ -38,7 +38,7 @@ export default function CardDetails( { isNew, cardName, cardColor, cardEffect, m
 			onClick={ cardClickedCallBack }
 			badgeContent='NEW'
 			variant='standard'
-			overlap='rectangle'
+			overlap='rectangular'
 			color='secondary'
 			invisible={ !isNew } >
 				<YGOCardStyled

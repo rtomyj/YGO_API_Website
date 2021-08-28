@@ -176,6 +176,14 @@ export default function Browse( {history} )
 					<StickyBox>
 						<LeftBoxPaper style={{ backgroundImage: 'linear-gradient(315deg, #7f5a83 0%, #0d324d 74%)' }} >
 
+							<LeftBoxSectionHeaderTypography variant='h6' >
+								Current Criteria
+							</LeftBoxSectionHeaderTypography>
+
+							<div style={{minHeight: '1.5rem', marginBottom: '1rem'}} >
+								{selectedCriteriaChips}
+							</div>
+
 							<Autocomplete
 								multiple
 								id='browseCriteriaFilter'
@@ -221,15 +229,6 @@ export default function Browse( {history} )
 								)
 							}}
 							/>
-
-
-							<LeftBoxSectionHeaderTypography variant='h6' >
-								Current Criteria
-							</LeftBoxSectionHeaderTypography>
-
-							<div style={{minHeight: '1.5rem'}} >
-								{selectedCriteriaChips}
-							</div>
 
 							<LightTranslucentDivider />
 

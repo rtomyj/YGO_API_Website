@@ -21,6 +21,16 @@ const DBSearch = styled(Autocomplete)`
 	}
 `
 
+const CardAvatar = styled(Avatar)`
+	&& {
+		margin-right: .75rem;
+		&&.MuiAvatar-root {
+			width: 60px;
+			height: 60px;
+		}
+	}
+`
+
 
 const searchThrottle = throttle((searchSubject, setSearchOptions, history) => {
 	handleFetch(`${NAME_maps_ENDPOINT['search']}?limit=10&cName=${searchSubject}`, history, json => { setSearchOptions(json) })
@@ -40,7 +50,7 @@ export default function DatabaseSearch({ history }) {
 
 
 	return (
-		<Paper style={{ display: 'flex', width: '95%', maxWidth: '500px', margin: '0 auto', borderRadius: '1.5rem', marginBottom: '2rem' }} >
+		<Paper style={{ display: 'flex', maxWidth: '500px', margin: '0 auto', borderRadius: '2.5rem', marginBottom: '2rem' }} >
 			<DBSearch
 				id='search'
 				clearOnEscape
@@ -63,16 +73,16 @@ export default function DatabaseSearch({ history }) {
 					)
 				}}
 				renderInput={(params) => (
-					<div style={{ width: '100%', display: 'flex', padding: '.25rem' }} >
+					<div style={{ display: 'flex', padding: '.2rem', paddingLeft: '1rem', paddingRight: '1rem' }} >
 						<InputBase
 							ref={params.InputProps.ref}
 							inputProps={params.inputProps}
 							style={{ color: 'rgba(0,0,0,.90)', flex: '1', margin: '.65rem', fontSize: '1.1rem' }}
-							placeholder='Search For Cards In Database...'
+							placeholder='Search database for specific card...'
 							onChange={event => { setSearchInput(event.target.value) }}
 						/>
 						<IconButton >
-							<SearchIcon />
+							<SearchIcon style={{fontSize: '2.1rem'}} />
 						</IconButton>
 					</div>
 				)}
@@ -85,8 +95,8 @@ export default function DatabaseSearch({ history }) {
 					const LENGTH_OF_SEARCH_TERM = UPPERCASE_SEARCH_TERM.length
 
 					return (
-						<div style={{display: 'flex'}} >
-							<Avatar alt={`${CARD_NAME}-Avatar`} src={`https://images.thesupremekingscastle.com/${option.cardID}.jpg`} style={{marginRight: '.5rem'}} />
+						<div style={{display: 'flex', width: '100%'}} >
+							<CardAvatar alt={`${CARD_NAME}-Avatar`} src={`https://images.thesupremekingscastle.com/cards/tn/${option.cardID}.jpg`} />
 							<div style={{ padding: '0rem', margin: '0rem' }} >
 								<SearchSuggestionTypography variant='body1'>
 									{CARD_NAME.slice(0, INDEX_OF_SEARCH_TERM)}

@@ -1,10 +1,9 @@
-import React from 'react'
-
+import {FunctionComponent} from 'react'
 import { Typography } from '@material-ui/core'
 
 import { RightBoxHeaderTypography, RightBoxSubHeaderTypography } from './grid/OneThirdTwoThirdsGrid'
 
-export default function()
+const SocialMedia: FunctionComponent = () =>
 {
 	return(
 		<div>
@@ -20,9 +19,17 @@ export default function()
 			</Typography>
 			<br />
 
-			<div style={{borderStyle: 'solid', borderColor: '#543fda', borderWidth: '.25rem', borderRadius: '1.1rem'}}>
-				<iframe style={{borderStyle: 'solid', borderRadius: '1rem'}} src="https://discord.com/widget?id=659477868799197185&theme=light" width="100%" height="400" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
-			</div>
+			<iframe
+				title='Discord Widget'
+				style={{borderStyle: 'solid', borderRadius: '1rem'}}
+				src="https://discord.com/widget?id=659477868799197185&theme=light"
+				width="100%"
+				height="400"
+				allowTransparency={true}
+				frameBorder="1"
+				sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts" />
 		</div>
 	)
 }
+
+export default SocialMedia

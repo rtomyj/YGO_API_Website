@@ -18,7 +18,6 @@
 				bottom: 0;
 				left: 0;
 				right: 0;
-				margin: 0 auto;
 
 				font-synthesis: none;
 				-moz-font-feature-settings: kern;
@@ -35,7 +34,7 @@
 				left: 0;
 				right: 0;
 				margin: 0 auto;
-				background: #eaeaea;
+				background: #eee;
 
 				text-rendering: optimizeLegibility;
 
@@ -91,16 +90,35 @@
 			}
 
 
+			.routes {
+				width: 100%;
+				max-width: 1850px;
+				margin: 0 auto !important;
+			}
+
+
+			.routes-wrapper {
+				padding-left: .8rem;
+				padding-right: .8rem;
+			}
+
+
 			.footer {
+				width: 100%;
+				max-width: 1850px;
+				margin: 0 auto !important;
+
 				background-color: #2b4162;
 				background-image: linear-gradient(315deg, #12100e 0%, #2b4162 74%);
 
+				border-top-left-radius: 1rem;
+				border-top-right-radius: 1rem;
+				margin-top: 2rem !important;
+			}
 
-				padding: 2.25rem;
-				padding-bottom: 3rem;
-				border-top-left-radius: 2.5rem;
-				border-top-right-radius: 2.5rem;
-				margin-top: 2rem;
+
+			.footer-wrapper {
+				padding: 2.5rem;
 			}
 
 
@@ -110,10 +128,24 @@
 			}
 
 
-			.app-bar {
+			.app-bar-container {
 				background: #310e68;
 				background-image: linear-gradient(316deg, #310e68 0%, #5f0f40 74%);
+				padding-left: .8rem;
+				padding-right: .8rem;
+				box-shadow: none !important;
+			}
+
+
+			.app-bar {
+				width: 100%;
+				max-width: 1850px;
+				margin: auto
+			}
+
+			.MuiToolbar-gutters {
 				padding-left: 0rem !important;
+				padding-right: 0rem !important;
 			}
 
 
@@ -121,7 +153,8 @@
 				font-weight: 800 !important;
 				font-size: 1.2rem !important;
 				text-transform: none !important;
-				padding: .5rem;
+				padding: .7rem;
+				border-radius: 1rem;
 			}
 
 
@@ -133,8 +166,9 @@
 
 			.nav-button {
 				font-weight: 700 !important;
-				font-size: .97rem !important;
-				padding: .5rem;
+				font-size: .95rem !important;
+				padding: .7rem;
+				border-radius: 1rem;
 			}
 
 
@@ -150,15 +184,15 @@
 				padding-left: 1rem;
 				padding-right: 1rem;
 				display: flex;
+				width: 100%;
+				max-width: 1850px;
+				margin: auto;
+				margin-bottom: .25rem;
+				padding: 0rem !important;
 			}
 
 			.scrollable-nav::-webkit-scrollbar {
 				display: none;
-			}
-
-			.MuiToolbar-gutters {
-				padding-left: 1rem !important;
-				padding-right: 1rem !important;
 			}
 
 		</style>

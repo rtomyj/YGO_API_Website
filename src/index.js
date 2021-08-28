@@ -1,13 +1,13 @@
 import React from 'react'
 import { render } from 'react-dom'
-import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles'
+import { createTheme, ThemeProvider } from '@material-ui/core/styles'
 
 import Footer from './components/footer/Footer'
 import NavigationBar from './components/NavigationBar'
 import Routes from './Routes.tsx'
 
 
-const theme = createMuiTheme({
+const theme = createTheme({
 	palette: {
 		primary: {
 			main: '#53539e',
@@ -85,8 +85,8 @@ const theme = createMuiTheme({
 			fontFamily: '-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji',
 			fontWeight: 300,
 			color: '#8778e5',
-			lineHeight: '2.25rem',
-			fontSize: '1.8rem',
+			lineHeight: '3.25rem',
+			fontSize: '2rem',
 		},
 		h2: {
 			fontFamily: '-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji',
@@ -162,9 +162,13 @@ const theme = createMuiTheme({
 render(
 	<ThemeProvider
 		theme={ theme } >
-		<div class='content' >
+		<div className='content' >
 			<NavigationBar />
-			<Routes />
+			<div className='routes' >
+				<div className='routes-wrapper' >
+					<Routes />
+				</div>
+			</div>
 		</div>
 		<Footer />
 	</ThemeProvider>

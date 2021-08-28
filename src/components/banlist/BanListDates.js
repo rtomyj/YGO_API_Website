@@ -1,7 +1,7 @@
 import React, { memo, useEffect, useState } from 'react'
 import Styled from 'styled-components'
 
-import { Button, Grid, ExpansionPanel, ExpansionPanelSummary, ExpansionPanelDetails, Typography } from '@material-ui/core'
+import { Button, Grid, Accordion, AccordionSummary, AccordionDetails, Typography } from '@material-ui/core'
 
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import DateRangeRoundedIcon from '@material-ui/icons/DateRangeRounded'
@@ -10,14 +10,14 @@ import {LeftBoxSectionHeaderTypography} from '../util/grid/OneThirdTwoThirdsGrid
 import { getDateString, months } from '../../helper/Dates'
 
 
-const BanDatesExpansionSummary = Styled(ExpansionPanelSummary)`
+const BanDatesExpansionSummary = Styled(AccordionSummary)`
 	&&
 	{
 		padding: 0rem;
 	}
 `
 
-const BanDatesExpansionDetail = Styled(ExpansionPanelDetails)`
+const BanDatesExpansionDetail = Styled(AccordionDetails)`
 	&&
 	{
 		padding: 0rem;
@@ -55,7 +55,7 @@ export const BanListDates = memo( ( { banListStartDates, setSelectedBanList } ) 
 
 		setSelectedRange( getCurrentBanListDate( months, banListStartDates[selectedBanListIndex], banListStartDates ) )
 		setBanListGrid(banListGrid)
-	}, [selectedBanListIndex])
+	}, [selectedBanListIndex, banListStartDates, setSelectedBanList])
 
 
 
@@ -65,7 +65,7 @@ export const BanListDates = memo( ( { banListStartDates, setSelectedBanList } ) 
 				variant='h6' >
 				Date Range
 			</LeftBoxSectionHeaderTypography>
-			<ExpansionPanel elevation={0} style={ { padding: '.5rem', background: 'rgba(255, 255, 255, .85)', borderRadius: '1rem' } }  >
+			<Accordion elevation={0} style={ { padding: '.5rem', background: 'rgba(255, 255, 255, .85)', borderRadius: '1rem' } }  >
 				<BanDatesExpansionSummary
 					expandIcon={<ExpandMoreIcon />} >
 					<Typography
@@ -80,7 +80,7 @@ export const BanListDates = memo( ( { banListStartDates, setSelectedBanList } ) 
 						{ banListGrid }
 					</Grid>
 				</BanDatesExpansionDetail>
-			</ExpansionPanel>
+			</Accordion>
 		</div>
 	)
 }, (prevProps, nextProps) => {

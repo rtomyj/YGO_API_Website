@@ -2,8 +2,6 @@ import React, { memo } from 'react'
 import { Grid } from '@material-ui/core'
 import {RightBoxPaper, RightBoxHeaderTypography, RightBoxSubHeaderTypography, RightBoxHeaderContainer} from '../../util/grid/OneThirdTwoThirdsGrid'
 
-import {DarkTranslucentDivider} from '../../util/Divider'
-
 import CardProductInformation from './CardProductInformation'
 import CardBanListInformation from './CardBanListInformation'
 
@@ -19,8 +17,6 @@ const CardInformationRelatedContent = memo( ({ cardName, isLoading, productInfo,
 				<RightBoxSubHeaderTypography variant='h5'>
 					Related Content For <i>{cardName}</i>
 				</RightBoxSubHeaderTypography>
-
-				<DarkTranslucentDivider />
 			</RightBoxHeaderContainer>
 
 			<Grid container spacing={1} >
@@ -28,8 +24,8 @@ const CardInformationRelatedContent = memo( ({ cardName, isLoading, productInfo,
 					<CardProductInformation
 						isLoading={isLoading}
 						hasInfo={ (productInfo.length === 0)? false : true }
-						cardInfo={productInfo}
 						cardID={cardID}
+						productInfo={productInfo}
 					/>
 				</Grid>
 
@@ -37,7 +33,7 @@ const CardInformationRelatedContent = memo( ({ cardName, isLoading, productInfo,
 					<CardBanListInformation
 						isLoading={isLoading}
 						hasInfo={ (banListInfo.length === 0)? false : true }
-						cardInfo={banListInfo}
+						banListInfo={banListInfo}
 					/>
 				</Grid>
 			</Grid>

@@ -1,4 +1,4 @@
-import React, { FunctionComponent, memo } from 'react'
+import { FunctionComponent, memo } from 'react'
 import '../../css/breadcrumb.css'
 
 import {Breadcrumbs, Link, Box, Typography} from '@material-ui/core'

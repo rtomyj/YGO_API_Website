@@ -1,5 +1,4 @@
 .card-info-header {
-	margin-bottom: 0;
 	font-weight: 700;
 }
 
@@ -8,10 +7,13 @@
 }
 
 .table-container {
-	border-radius: 1.1rem;
+	border-top-left-radius: 1.1rem;
+	border-top-right-radius: 1.1rem;
+	border-bottom-left-radius: .7rem;
+	border-bottom-right-radius: .7rem;
 	background: rgba(0, 0, 0, 0.3);
 	color: rgba(255, 255, 255, .97);
-	max-width: 97%;
+	max-width: 98%;
 	margin: auto;
 }
 
@@ -27,7 +29,7 @@
 .divider {
 	margin-top: 0;
 	margin-bottom: 1.5rem;
-	width: 97%;
+	width: 98%;
 }
 
 .card-info-section {
@@ -48,4 +50,8 @@
 .ban-lists {
 	background: #fc9842;
 	background-image: linear-gradient(315deg, #fc9842 0%, #fe5f75 74%);
+}
+
+.MuiTableCell-root  {
+	padding: .75rem !important
 }

@@ -1,9 +1,16 @@
-import React from 'react'
+import {FunctionComponent, ReactNode} from 'react'
 import { Box, Typography } from '@material-ui/core'
 import styled from 'styled-components'
+import { Variant } from '@material-ui/core/styles/createTypography'
 
+type args = {
+	children: ReactNode,
+	variant: Variant | 'inherit',
+	backgroundColor: string,
+	textColor: string
+}
 
-const Hint = ( { children, variant, backgroundColor='#f6f2fb', textColor='#5e6d7d' } ) =>
+const Hint:FunctionComponent<args> = ( { children, variant, backgroundColor='#f6f2fb', textColor='#5e6d7d' } ) =>
 {
 
 	const HintBox = styled(Box)`
